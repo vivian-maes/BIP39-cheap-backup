@@ -1,68 +1,68 @@
-# Sauvegarde de Clé BIP39 sur Carte 3D
+# BIP39 Key 3D Card Backup
 
-Ce projet vous permet de générer une carte 3D (au format .scad) à partir d'une liste de mots BIP39. Une fois créée, cette carte peut être imprimée à l'aide d'une imprimante 3D pour une sauvegarde physique de votre clé.
+This project allows you to generate a 3D card (in .scad format) from a list of BIP39 words. Once created, this card can be printed using a 3D printer for a physical backup of your key.
 
-## Considérations de Sécurité et Durabilité
+## Security and Durability Considerations
 
-Il est crucial de comprendre que bien que cette méthode de sauvegarde offre une certaine durabilité face aux usages courants, elle présente des limites intrinsèques en matière de résistance. En effet, étant donné que la carte est imprimée en plastique, elle n'est pas protégée contre des scénarios extrêmes tels que le feu, des températures élevées, ou d'autres catastrophes naturelles qui pourraient endommager ou fondre le plastique.
+It's crucial to understand that while this backup method offers some level of durability against common wear and tear, it has inherent limitations when it comes to resilience. Given that the card is printed in plastic, it is not protected against extreme scenarios such as fire, high temperatures, or other natural disasters that might damage or melt the plastic.
 
-Sur le marché, il existe des solutions en titane conçues pour résister à de telles situations extrêmes. Ces solutions sont spécifiquement fabriquées pour offrir une protection maximale contre le feu, la corrosion, et d'autres conditions défavorables. Cependant, le coût de ces solutions en titane est souvent élevé, dépassant rapidement les 100 euros.
+On the market, there are titanium solutions designed to withstand such extreme situations. These are specifically manufactured to offer maximum protection against fire, corrosion, and other harsh conditions. However, the cost of these titanium solutions is often high, quickly exceeding 100 euros.
 
-Pour les personnes possédant des portefeuilles cryptographiques de valeur élevée, il pourrait être judicieux d'investir dans de telles solutions pour garantir une protection optimale. Néanmoins, pour des portefeuilles de valeur moyenne ou pour ceux qui ne sont pas prêts à investir une somme considérable dans des solutions de sauvegarde haut de gamme, notre solution imprimée en 3D peut être suffisante. Elle offre une protection raisonnable contre l'usure quotidienne tout en étant économique.
+For individuals with high-value cryptocurrency wallets, it might be wise to invest in such solutions to ensure optimal protection. However, for medium-value wallets or those not ready to invest a significant amount into high-end backup solutions, our 3D printed method might suffice. It offers reasonable protection against everyday wear and tear while being cost-effective.
 
-Il est essentiel de peser le rapport coût-bénéfice en fonction de la valeur de votre portefeuille cryptographique et des risques que vous êtes prêt à prendre en matière de sauvegarde.
+It's essential to weigh the cost-benefit ratio based on the value of your cryptocurrency wallet and the risks you are willing to take in terms of backup.
 
-## Prérequis
+## Prerequisites
 
-Vous aurez besoin de Python pour exécuter ce projet.
+You will need Python installed to run this project. 
 
-## Installation et Dépendances
+## Installation & Dependencies
 
-Tout d'abord, clonez ce dépôt :
-
-```bash
-git clone [url-du-dépôt]
-cd [dossier-du-dépôt]
-```
-
-Ensuite, installez les dépendances Python nécessaires. Ce projet nécessite la bibliothèque `solid` pour générer des fichiers .scad :
+First, clone this repository:
 
 ```bash
-pip install solidpy
+git clone [repository-url]
+cd [repository-directory]
 ```
 
-## Fonctionnalités
-
-1. **WordManager**: Cette classe est responsable de la lecture du fichier contenant les mots BIP39 et propose des méthodes pour obtenir des informations sur ces mots.
-2. **CardDessing**: Cette classe crée le design de la carte 3D en fonction des mots fournis par `WordManager`. Elle permet également de sauvegarder le design sous forme de fichier .scad.
-
-## Utilisation
-
-1. Préparez un fichier texte contenant votre clé BIP39 (12, 18 ou 24 mots, un mot par ligne).
-2. Exécutez l'application avec la commande suivante :
+Next, install the necessary Python dependencies. This project requires the `solid` library for generating .scad files:
 
 ```bash
-python main.py [chemin_vers_la_clé] [titre] [chemin_de_sauvegarde]
+pip install solidpython
 ```
 
-- `chemin_vers_la_clé`: Chemin vers le fichier texte contenant votre clé BIP39.
-- `titre`: Titre de la carte.
-- `chemin_de_sauvegarde`: Chemin du fichier où le design .scad sera sauvegardé.
+## Functionality
 
-## Exemple
+1. **WordManager**: This class is responsible for reading the file containing the BIP39 words and provides methods to obtain information on these words.
+2. **CardDessing**: This class creates the 3D card design based on the words provided by `WordManager`. It also allows you to save the design as a .scad file.
 
-Supposons que vous ayez un fichier nommé `maCle.txt` contenant votre clé BIP39, voici comment vous pourriez utiliser l'application :
+## Usage
+
+1. Prepare a text file containing your BIP39 key (12, 18, or 24 words, one word per line).
+2. Run the application with the following command:
 
 ```bash
-python main.py maCle.txt "Ma Clé BIP39" carteDeSauvegarde.scad
+python main.py [key_path] [title] [save_path]
 ```
 
-⚠️ **Attention**: Le résultat final dépendra grandement de l'imprimante 3D utilisée ainsi que de la qualité d'impression. Assurez-vous de tester avec votre imprimante pour obtenir les meilleurs résultats.
+- `key_path`: Path to the text file containing your BIP39 key.
+- `title`: Title of the card.
+- `save_path`: Save file path where the .scad design will be saved.
+
+## Example
+
+Suppose you have a file named `myKey.txt` containing your BIP39 key, here's how you might use the application:
+
+```bash
+python main.py myKey.txt "My BIP39 Key" backupCard.scad
+```
+
+⚠️ **Warning**: The final result will greatly depend on the 3D printer used as well as the print quality. Make sure to test with your printer to achieve the best results.
 
 ## Contribution
 
-Si vous avez des améliorations ou des suggestions pour ce projet, n'hésitez pas à ouvrir un ticket ou à soumettre une pull request.
+If you have improvements or suggestions for this project, feel free to open an issue or submit a pull request.
 
 ---
 
-J'espère que cela vous convient! Vous pouvez le personnaliser davantage si nécessaire.
+I hope this meets your requirements! You can further customize it as needed.
