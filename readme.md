@@ -14,7 +14,7 @@ It's essential to weigh the cost-benefit ratio based on the value of your crypto
 
 ## Prerequisites
 
-You will need Python installed to run this project. 
+You will need Python 3.7 or later to run this project.
 
 ## Installation & Dependencies
 
@@ -25,11 +25,18 @@ git clone [repository-url]
 cd [repository-directory]
 ```
 
-Next, install the necessary Python dependencies. This project requires the `solid` library for generating .scad files:
+Next, create a virtual environment and install the dependencies. This project uses
+SolidPython2 (imported as `solid2`) to generate .scad files:
 
 ```bash
-pip install solidpython
+python3 -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
 ```
+
+The virtual environment is not optional on recent Python installs (Homebrew,
+Debian/Ubuntu): a bare `pip install` there aborts with
+`error: externally-managed-environment`.
 
 ## Functionality
 

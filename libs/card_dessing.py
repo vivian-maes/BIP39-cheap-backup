@@ -1,5 +1,4 @@
-import solid
-from solid.utils import *
+import solid2
 
 class CardDessing:
   def __init__(self, key_word, title):
@@ -54,7 +53,7 @@ class CardDessing:
     Returns:
         cube: A solid object representing the base of the card.
     """
-    cube = solid.cube([self.card_length, self.card_width, self.card_height])
+    cube = solid2.cube([self.card_length, self.card_width, self.card_height])
     return cube
 
   def write_title(self, tile):
@@ -65,13 +64,13 @@ class CardDessing:
         tile (str): The title text to be written on the card.
 
     Returns:
-        solid.text: The text object representing the written title.
+        solid2.text: The text object representing the written title.
     """
     y = self.card_width - self.margin - self.title_font_size  # + (self.font_size / 3)
     x = self.card_length / 2
-    text = solid.translate([x, y, self.text_z_pos])(
-        solid.linear_extrude(height=self.text_height, convexity=None)(
-            solid.text(tile, size=self.title_font_size, font=self.font_name, halign='center', valign='baseline',
+    text = solid2.translate([x, y, self.text_z_pos])(
+        solid2.linear_extrude(height=self.text_height, convexity=None)(
+            solid2.text(tile, size=self.title_font_size, font=self.font_name, halign='center', valign='baseline',
                        spacing=1.0)))
     return text
 
@@ -118,9 +117,9 @@ class CardDessing:
         Returns:
             text: The 3D text object representing the written word.
     """
-    text = solid.translate([x, y, self.text_z_pos])(
-        solid.linear_extrude(height=self.text_height, convexity=None)(
-            solid.text(word, size=self.base_font_size, font=self.font_name, halign='left', valign='baseline',
+    text = solid2.translate([x, y, self.text_z_pos])(
+        solid2.linear_extrude(height=self.text_height, convexity=None)(
+            solid2.text(word, size=self.base_font_size, font=self.font_name, halign='left', valign='baseline',
                        spacing=1.0)))
     return text
 
@@ -132,4 +131,4 @@ class CardDessing:
     :param filename: The name of the file to save the card to.
     """
     print(f"Save card to {filename}")
-    solid.scad_render_to_file(self.data, filename)
+    solid2.scad_render_to_file(self.data, filename)

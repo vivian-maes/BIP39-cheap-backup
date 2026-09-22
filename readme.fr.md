@@ -14,7 +14,7 @@ Il est essentiel de peser le rapport coût-bénéfice en fonction de la valeur d
 
 ## Prérequis
 
-Vous aurez besoin de Python pour exécuter ce projet.
+Vous aurez besoin de Python 3.7 ou plus récent pour exécuter ce projet.
 
 ## Installation et Dépendances
 
@@ -25,11 +25,18 @@ git clone [url-du-dépôt]
 cd [dossier-du-dépôt]
 ```
 
-Ensuite, installez les dépendances Python nécessaires. Ce projet nécessite la bibliothèque `solid` pour générer des fichiers .scad :
+Ensuite, créez un environnement virtuel et installez les dépendances. Ce projet
+utilise SolidPython2 (importé sous le nom `solid2`) pour générer les fichiers .scad :
 
 ```bash
-pip install solidpy
+python3 -m venv .venv
+source .venv/bin/activate        # Windows : .venv\Scripts\activate
+pip install -r requirements.txt
 ```
+
+L'environnement virtuel n'est pas facultatif sur les installations Python récentes
+(Homebrew, Debian/Ubuntu) : un `pip install` direct y échoue avec
+`error: externally-managed-environment`.
 
 ## Fonctionnalités
 
