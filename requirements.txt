@@ -3,7 +3,12 @@
 # voir AGENTS.md. Ne pas revenir à `solidpython`.
 #
 # Version épinglée à l'exact : AGENTS.md garantit que `./make_sample.sh` laisse
-# `git diff sample/card.scad` vide. Ce contrat dépend du formatage du rendu, qui
-# ne fait pas partie de l'API publique de solid2. Relever la version implique de
-# régénérer sample/card.scad dans le même commit.
+# `git diff sample/` vide. Ce contrat dépend du formatage du rendu, qui ne fait
+# pas partie de l'API publique de solid2. Relever la version implique de
+# régénérer les échantillons dans le même commit.
 solidpython2==2.1.3
+
+# Vectorisation des contours de glyphes. Aucune dépendance obligatoire, pur
+# Python, mais exige Python >= 3.10. Épinglée pour la même raison que ci-dessus :
+# la vectorisation doit rester identique d'une machine et d'une date à l'autre.
+fonttools==4.65.0

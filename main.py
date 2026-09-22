@@ -7,7 +7,10 @@ from libs.card_dessing import CardDessing
 # refusées alors que la mise en page les gère (5 et 7 rangées de 3 mots).
 VALID_WORD_COUNTS = (12, 15, 18, 21, 24)
 
-def main(key_path, tile, save_path):
+ENGRAVED = 'engraved'
+CONTRAST = 'contrast'
+
+def main(key_path, tile, save_path, mode=ENGRAVED):
     print(f"Fichier à lire = {key_path}")
 
     key_word = WordManager(key_path)
@@ -20,17 +23,34 @@ def main(key_path, tile, save_path):
             f"une clé BIP39 en compte {expected}.")
 
     card_dessing = CardDessing(key_word, tile)
-    card_dessing.make_card()
-    card_dessing.save(save_path)
+
+    if mode == CONTRAST:
+        parts = card_dessing.make_contrast_card()
+        card_dessing.save_parts(parts, save_path)
+        print(
+            "Carte contrastée, deux variantes au choix :\n"
+            "  • assemblée  : imprimer « base » et « counter » dans deux couleurs, "
+            "puis les emboîter. Dessus plan, mais les lettres portent des encoches "
+            "de pochoir qui rattachent leurs contreformes.\n"
+            "  • monobloc   : imprimer « single » seule et changer de filament à "
+            f"z = {card_dessing.filament_change_height():.2f} mm. Aucun assemblage "
+            "et les lettres restent intactes — la plus lisible des deux.")
+    else:
+        card_dessing.make_card()
+        card_dessing.save(save_path)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Mon application Python en ligne de commande.')
-    
+
     parser.add_argument('key_path',  type=str, help='path vers le fichier à encoder.')
     parser.add_argument('title',     type=str, help='titre de la carte.')
     parser.add_argument('save_path', type=str, help='path du fichier à savegarder.')
+    parser.add_argument('--mode', choices=(ENGRAVED, CONTRAST), default=ENGRAVED,
+                        help="engraved : texte gravé en creux, une seule pièce (défaut). "
+                             "contrast : deux pièces à imprimer dans deux couleurs, "
+                             "pour un texte réellement lisible.")
 
     args = parser.parse_args()
 
-    main(args.key_path, args.title, args.save_path)
+    main(args.key_path, args.title, args.save_path, args.mode)

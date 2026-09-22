@@ -14,7 +14,7 @@ Il est essentiel de peser le rapport coût-bénéfice en fonction de la valeur d
 
 ## Prérequis
 
-Vous aurez besoin de Python 3.7 ou plus récent pour exécuter ce projet.
+Vous aurez besoin de Python 3.10 ou plus récent pour exécuter ce projet (exigé par fonttools).
 
 ## Installation et Dépendances
 
@@ -37,6 +37,25 @@ pip install -r requirements.txt
 L'environnement virtuel n'est pas facultatif sur les installations Python récentes
 (Homebrew, Debian/Ubuntu) : un `pip install` direct y échoue avec
 `error: externally-managed-environment`.
+
+## Styles de carte
+
+`--mode engraved` (défaut) grave le texte en creux dans une plaque unique.
+`--mode contrast` produit deux plaques à imprimer dans deux couleurs : une base
+portant le texte en relief, et une contre-plaque ajourée aux formes des lettres
+qui vient combler autour. Assemblées, le dessus est plan et le texte contraste
+enfin. Imprimer la base seule en changeant de filament en cours d'impression
+donne le même contraste en une seule pièce.
+
+Les contours des glyphes sont vectorisés à la génération et intégrés au .scad :
+la carte rend donc à l'identique sur n'importe quelle machine, sans aucune
+police installée.
+
+## Prévisualiser avant d'imprimer
+
+`make_sample.sh` produit un PNG par .scad généré via `tools/preview.py`, qui
+rastérise les mêmes contours que ceux du .scad, sans OpenSCAD ni aucune
+dépendance. Relisez la carte là avant d'y consacrer du filament.
 
 ## Fonctionnalités
 

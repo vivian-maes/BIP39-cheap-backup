@@ -14,7 +14,7 @@ It's essential to weigh the cost-benefit ratio based on the value of your crypto
 
 ## Prerequisites
 
-You will need Python 3.7 or later to run this project.
+You will need Python 3.10 or later to run this project (required by fonttools).
 
 ## Installation & Dependencies
 
@@ -37,6 +37,23 @@ pip install -r requirements.txt
 The virtual environment is not optional on recent Python installs (Homebrew,
 Debian/Ubuntu): a bare `pip install` there aborts with
 `error: externally-managed-environment`.
+
+## Card styles
+
+`--mode engraved` (default) cuts the text into a single plate. `--mode contrast`
+emits two plates to print in two filament colours: a base carrying the text in
+relief, and a counter-plate pierced with the letter shapes that fills in around
+them. Assembled, the top is flush and the text finally contrasts. Printing the
+base alone and swapping filament mid-print gives the same contrast in one piece.
+
+Glyph outlines are vectorised at generation time and embedded in the .scad, so a
+card renders identically on any machine, with no font installed.
+
+## Previewing before you print
+
+`make_sample.sh` renders one PNG per generated .scad through `tools/preview.py`,
+which rasterises the same outlines the .scad contains, with no OpenSCAD and no
+third-party module. Proofread the card there before committing filament to it.
 
 ## Functionality
 
