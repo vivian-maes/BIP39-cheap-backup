@@ -146,7 +146,8 @@ class Renderer:
     def _bridges(self, buf, colour):
         for text, size, dx, dy in self.placements:
             for x0, y0, x1, y1 in self.card.outliner.counter_bridges(
-                    text, size, self.card.bridge_width):
+                    text, size, self.card.bridge_width,
+                    self.card.bridge_margin):
                 fill(buf, self.width, self.height,
                      [self._to_px([(x0, y0), (x1, y0), (x1, y1), (x0, y1)], dx, dy)],
                      colour)

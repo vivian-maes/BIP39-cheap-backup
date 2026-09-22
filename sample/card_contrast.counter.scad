@@ -116,275 +116,275 @@ linear_extrude(convexity = 4, height = 0.6) {
 				}
 			}
 		}
-		translate(v = [28.2959, 48.558]) {
-			square(size = [0.6, 0.9728]);
+		translate(v = [28.2959, 47.958]) {
+			square(size = [0.6, 1.9172]);
 		}
-		translate(v = [33.3926, 49.955]) {
-			square(size = [0.6, 1.397]);
+		translate(v = [33.3926, 49.2116]) {
+			square(size = [0.6, 2.7404]);
 		}
-		translate(v = [38.42, 50.4569]) {
-			square(size = [0.6, 0.8951]);
+		translate(v = [38.42, 50.165]) {
+			square(size = [0.6, 1.787]);
 		}
-		translate(v = [43.4474, 48.558]) {
-			square(size = [0.6, 1.397]);
+		translate(v = [43.4474, 47.958]) {
+			square(size = [0.6, 2.7404]);
 		}
-		translate(v = [45.98, 50.4569]) {
-			square(size = [0.6, 0.8951]);
+		translate(v = [45.98, 50.165]) {
+			square(size = [0.6, 1.787]);
 		}
-		translate(v = [53.4959, 48.558]) {
-			square(size = [0.6, 0.9728]);
+		translate(v = [53.4959, 47.958]) {
+			square(size = [0.6, 1.9172]);
 		}
-		translate(v = [61.1, 50.4569]) {
-			square(size = [0.6, 0.8951]);
+		translate(v = [61.1, 50.165]) {
+			square(size = [0.6, 1.787]);
 		}
-		translate(v = [2.75, 43.3525]) {
-			square(size = [0.6, 1.5125]);
+		translate(v = [2.75, 42.418]) {
+			square(size = [0.6, 3.047]);
 		}
-		translate(v = [11.1132, 41.84]) {
-			square(size = [0.6, 0.844]);
+		translate(v = [11.1132, 41.24]) {
+			square(size = [0.6, 1.731]);
 		}
-		translate(v = [30.0833, 43.3525]) {
-			square(size = [0.6, 1.5125]);
+		translate(v = [30.0833, 42.418]) {
+			square(size = [0.6, 3.047]);
 		}
-		translate(v = [36.3833, 43.0375]) {
-			square(size = [0.6, 1.194]);
+		translate(v = [36.3833, 42.425]) {
+			square(size = [0.6, 2.4065]);
 		}
-		translate(v = [42.6728, 41.84]) {
-			square(size = [0.6, 1.1975]);
+		translate(v = [42.6728, 41.24]) {
+			square(size = [0.6, 2.417]);
 		}
-		translate(v = [44.7833, 43.0375]) {
-			square(size = [0.6, 1.194]);
+		translate(v = [44.7833, 42.425]) {
+			square(size = [0.6, 2.4065]);
 		}
-		translate(v = [46.8833, 43.0375]) {
-			square(size = [0.6, 1.194]);
+		translate(v = [46.8833, 42.425]) {
+			square(size = [0.6, 2.4065]);
 		}
-		translate(v = [57.4167, 43.3525]) {
-			square(size = [0.6, 1.5125]);
+		translate(v = [57.4167, 42.418]) {
+			square(size = [0.6, 3.047]);
 		}
-		translate(v = [63.6799, 41.84]) {
-			square(size = [0.6, 0.844]);
+		translate(v = [63.6799, 41.24]) {
+			square(size = [0.6, 1.731]);
 		}
-		translate(v = [72.1167, 43.0375]) {
-			square(size = [0.6, 1.194]);
+		translate(v = [72.1167, 42.425]) {
+			square(size = [0.6, 2.4065]);
 		}
-		translate(v = [2.75, 37.6275]) {
-			square(size = [0.6, 1.5125]);
+		translate(v = [2.75, 36.693]) {
+			square(size = [0.6, 3.047]);
 		}
-		translate(v = [11.15, 37.7308]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [11.15, 37.4875]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [19.5132, 36.115]) {
-			square(size = [0.6, 0.844]);
+		translate(v = [19.5132, 35.515]) {
+			square(size = [0.6, 1.731]);
 		}
-		translate(v = [30.0833, 37.6275]) {
-			square(size = [0.6, 1.5125]);
+		translate(v = [30.0833, 36.693]) {
+			square(size = [0.6, 3.047]);
 		}
-		translate(v = [44.7465, 36.115]) {
-			square(size = [0.6, 0.844]);
+		translate(v = [44.7465, 35.515]) {
+			square(size = [0.6, 1.731]);
 		}
-		translate(v = [57.4167, 37.6275]) {
-			square(size = [0.6, 1.5125]);
+		translate(v = [57.4167, 36.693]) {
+			square(size = [0.6, 3.047]);
 		}
-		translate(v = [59.5167, 36.115]) {
-			square(size = [0.6, 1.0278]);
+		translate(v = [59.5167, 35.515]) {
+			square(size = [0.6, 2.0845]);
 		}
-		translate(v = [65.7799, 36.115]) {
-			square(size = [0.6, 0.844]);
+		translate(v = [65.7799, 35.515]) {
+			square(size = [0.6, 1.731]);
 		}
-		translate(v = [70.0167, 37.3125]) {
-			square(size = [0.6, 1.194]);
+		translate(v = [70.0167, 36.7]) {
+			square(size = [0.6, 2.4065]);
 		}
-		translate(v = [2.75, 31.9025]) {
-			square(size = [0.6, 1.5125]);
+		translate(v = [2.75, 30.968]) {
+			square(size = [0.6, 3.047]);
 		}
-		translate(v = [9.0395, 30.39]) {
-			square(size = [0.6, 1.1975]);
+		translate(v = [9.0395, 29.79]) {
+			square(size = [0.6, 2.417]);
 		}
-		translate(v = [11.15, 31.5875]) {
-			square(size = [0.6, 1.194]);
+		translate(v = [11.15, 30.975]) {
+			square(size = [0.6, 2.4065]);
 		}
-		translate(v = [15.35, 32.0057]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [15.35, 31.7625]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [30.0833, 31.9025]) {
-			square(size = [0.6, 1.5125]);
+		translate(v = [30.0833, 30.968]) {
+			square(size = [0.6, 3.047]);
 		}
-		translate(v = [32.1833, 32.4922]) {
-			square(size = [0.6, 0.9228]);
+		translate(v = [32.1833, 32.1335]) {
+			square(size = [0.6, 1.8815]);
 		}
-		translate(v = [32.1833, 30.39]) {
-			square(size = [0.6, 0.9805]);
+		translate(v = [32.1833, 29.79]) {
+			square(size = [0.6, 1.99]);
 		}
-		translate(v = [36.3466, 30.39]) {
-			square(size = [0.6, 0.844]);
+		translate(v = [36.3466, 29.79]) {
+			square(size = [0.6, 1.731]);
 		}
-		translate(v = [42.6466, 30.39]) {
-			square(size = [0.6, 0.844]);
+		translate(v = [42.6466, 29.79]) {
+			square(size = [0.6, 1.731]);
 		}
-		translate(v = [57.4167, 31.9025]) {
-			square(size = [0.6, 1.5125]);
+		translate(v = [57.4167, 30.968]) {
+			square(size = [0.6, 3.047]);
 		}
-		translate(v = [59.5167, 32.3873]) {
-			square(size = [0.6, 1.0278]);
+		translate(v = [59.5167, 31.9305]) {
+			square(size = [0.6, 2.0845]);
 		}
-		translate(v = [65.8167, 32.0057]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [65.8167, 31.7625]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [70.0167, 32.0057]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [70.0167, 31.7625]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [76.3167, 32.0057]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [76.3167, 31.7625]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [4.85, 26.1775]) {
-			square(size = [0.6, 1.5125]);
+		translate(v = [4.85, 25.243]) {
+			square(size = [0.6, 3.047]);
 		}
-		translate(v = [9.05, 26.2807]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [9.05, 26.0375]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [36.3745, 25.936]) {
-			square(size = [0.6, 1.124]);
+		translate(v = [36.3745, 25.39]) {
+			square(size = [0.6, 2.27]);
 		}
-		translate(v = [40.5465, 24.665]) {
-			square(size = [0.6, 0.844]);
+		translate(v = [40.5465, 24.065]) {
+			square(size = [0.6, 1.731]);
 		}
-		translate(v = [67.9079, 25.936]) {
-			square(size = [0.6, 1.124]);
+		translate(v = [67.9079, 25.39]) {
+			square(size = [0.6, 2.27]);
 		}
-		translate(v = [70.0079, 25.936]) {
-			square(size = [0.6, 1.124]);
+		translate(v = [70.0079, 25.39]) {
+			square(size = [0.6, 2.27]);
 		}
-		translate(v = [72.0799, 24.665]) {
-			square(size = [0.6, 0.844]);
+		translate(v = [72.0799, 24.065]) {
+			square(size = [0.6, 1.731]);
 		}
-		translate(v = [74.2079, 25.936]) {
-			square(size = [0.6, 1.124]);
+		translate(v = [74.2079, 25.39]) {
+			square(size = [0.6, 2.27]);
 		}
-		translate(v = [76.3167, 26.2807]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [76.3167, 26.0375]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [11.15, 20.1375]) {
-			square(size = [0.6, 1.194]);
+		translate(v = [11.15, 19.525]) {
+			square(size = [0.6, 2.4065]);
 		}
-		translate(v = [21.6412, 20.211]) {
-			square(size = [0.6, 1.124]);
+		translate(v = [21.6412, 19.665]) {
+			square(size = [0.6, 2.27]);
 		}
-		translate(v = [36.3466, 18.94]) {
-			square(size = [0.6, 0.844]);
+		translate(v = [36.3466, 18.34]) {
+			square(size = [0.6, 1.731]);
 		}
-		translate(v = [38.4938, 20.1375]) {
-			square(size = [0.6, 1.1975]);
+		translate(v = [38.4938, 19.518]) {
+			square(size = [0.6, 2.417]);
 		}
-		translate(v = [40.5938, 20.1375]) {
-			square(size = [0.6, 1.1975]);
+		translate(v = [40.5938, 19.518]) {
+			square(size = [0.6, 2.417]);
 		}
-		translate(v = [42.6833, 20.5557]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [42.6833, 20.3125]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [44.7465, 18.94]) {
-			square(size = [0.6, 0.844]);
+		translate(v = [44.7465, 18.34]) {
+			square(size = [0.6, 1.731]);
 		}
-		translate(v = [63.7167, 20.5557]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [63.7167, 20.3125]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [70.0167, 20.5557]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [70.0167, 20.3125]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [74.2062, 18.94]) {
-			square(size = [0.6, 1.1975]);
+		translate(v = [74.2062, 18.34]) {
+			square(size = [0.6, 2.417]);
 		}
-		translate(v = [4.85, 13.215]) {
-			square(size = [0.6, 1.0278]);
+		translate(v = [4.85, 12.615]) {
+			square(size = [0.6, 2.0845]);
 		}
-		translate(v = [11.15, 14.8307]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [11.15, 14.5875]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [13.25, 14.4125]) {
-			square(size = [0.6, 1.194]);
+		translate(v = [13.25, 13.8]) {
+			square(size = [0.6, 2.4065]);
 		}
-		translate(v = [15.3605, 14.4125]) {
-			square(size = [0.6, 1.1975]);
+		translate(v = [15.3605, 13.793]) {
+			square(size = [0.6, 2.417]);
 		}
-		translate(v = [17.4132, 13.215]) {
-			square(size = [0.6, 0.844]);
+		translate(v = [17.4132, 12.615]) {
+			square(size = [0.6, 1.731]);
 		}
-		translate(v = [21.6395, 13.215]) {
-			square(size = [0.6, 1.1975]);
+		translate(v = [21.6395, 12.615]) {
+			square(size = [0.6, 2.417]);
 		}
-		translate(v = [36.3938, 14.4125]) {
-			square(size = [0.6, 1.1975]);
+		translate(v = [36.3938, 13.793]) {
+			square(size = [0.6, 2.417]);
 		}
-		translate(v = [40.5746, 14.486]) {
-			square(size = [0.6, 1.124]);
+		translate(v = [40.5746, 13.94]) {
+			square(size = [0.6, 2.27]);
 		}
-		translate(v = [42.6833, 14.8307]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [42.6833, 14.5875]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [44.7833, 14.4125]) {
-			square(size = [0.6, 1.194]);
+		translate(v = [44.7833, 13.8]) {
+			square(size = [0.6, 2.4065]);
 		}
-		translate(v = [59.5167, 15.3172]) {
-			square(size = [0.6, 0.9228]);
+		translate(v = [59.5167, 14.9585]) {
+			square(size = [0.6, 1.8815]);
 		}
-		translate(v = [59.5167, 13.215]) {
-			square(size = [0.6, 0.9805]);
+		translate(v = [59.5167, 12.615]) {
+			square(size = [0.6, 1.99]);
 		}
-		translate(v = [65.8272, 14.4125]) {
-			square(size = [0.6, 1.1975]);
+		translate(v = [65.8272, 13.793]) {
+			square(size = [0.6, 2.417]);
 		}
-		translate(v = [67.9167, 14.4125]) {
-			square(size = [0.6, 1.194]);
+		translate(v = [67.9167, 13.8]) {
+			square(size = [0.6, 2.4065]);
 		}
-		translate(v = [4.85, 9.4872]) {
-			square(size = [0.6, 1.0278]);
+		translate(v = [4.85, 9.0305]) {
+			square(size = [0.6, 2.0845]);
 		}
-		translate(v = [11.1132, 7.49]) {
-			square(size = [0.6, 0.844]);
+		translate(v = [11.1132, 6.89]) {
+			square(size = [0.6, 1.731]);
 		}
-		translate(v = [13.2395, 7.49]) {
-			square(size = [0.6, 1.1975]);
+		translate(v = [13.2395, 6.89]) {
+			square(size = [0.6, 2.417]);
 		}
-		translate(v = [15.3395, 7.49]) {
-			square(size = [0.6, 1.1975]);
+		translate(v = [15.3395, 6.89]) {
+			square(size = [0.6, 2.417]);
 		}
-		translate(v = [17.45, 9.1058]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [17.45, 8.8625]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [32.1833, 9.0025]) {
-			square(size = [0.6, 1.5125]);
+		translate(v = [32.1833, 8.068]) {
+			square(size = [0.6, 3.047]);
 		}
-		translate(v = [42.6833, 9.1058]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [42.6833, 8.8625]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [70.0167, 9.1058]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [70.0167, 8.8625]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [11.15, 3.3807]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [11.15, 3.1375]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [13.25, 3.3807]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [13.25, 3.1375]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [15.3395, 1.765]) {
-			square(size = [0.6, 1.1975]);
+		translate(v = [15.3395, 1.165]) {
+			square(size = [0.6, 2.417]);
 		}
-		translate(v = [40.5938, 2.9625]) {
-			square(size = [0.6, 1.1975]);
+		translate(v = [40.5938, 2.343]) {
+			square(size = [0.6, 2.417]);
 		}
-		translate(v = [48.9833, 3.3807]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [48.9833, 3.1375]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [65.8167, 2.9625]) {
-			square(size = [0.6, 1.194]);
+		translate(v = [65.8167, 2.35]) {
+			square(size = [0.6, 2.4065]);
 		}
-		translate(v = [70.0167, 3.3807]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [70.0167, 3.1375]) {
+			square(size = [0.6, 1.6225]);
 		}
-		translate(v = [72.1167, 2.9625]) {
-			square(size = [0.6, 1.194]);
+		translate(v = [72.1167, 2.35]) {
+			square(size = [0.6, 2.4065]);
 		}
-		translate(v = [76.3167, 3.3807]) {
-			square(size = [0.6, 0.7793]);
+		translate(v = [76.3167, 3.1375]) {
+			square(size = [0.6, 1.6225]);
 		}
 	}
 }

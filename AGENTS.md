@@ -34,6 +34,7 @@ libs/word_manager.py      WordManager : lecture du fichier de mots, accès par i
 libs/glyph_outline.py     FontOutliner : texte -> contours en mm (fontTools)
 libs/card_dessing.py      CardDessing : géométrie de la carte et rendu SolidPython
 tools/preview.py          rendu PNG des .scad, sans OpenSCAD ni dépendance
+tools/check_mesh.py       composants détachés d'un STL : le contrôle des ponts
 fonts/                    police embarquée + sa licence, voir fonts/README.md
 sample/keys.txt           clé de démonstration (24 mots, un par ligne)
 sample/card.scad          référence, mode gravé
@@ -83,7 +84,22 @@ qu'OpenSCAD — un aperçu aux contreformes creuses prouve donc que le `.scad` l
 creuses. C'est ce rendu qui a révélé que les ponts transformaient le `0` en `U`.
 Les images étant régénérées avec les `.scad`, elles ne peuvent plus se périmer.
 
-On peut aussi ouvrir le `.scad` dans OpenSCAD. Le rendu ne dépend plus
+On peut aussi ouvrir le `.scad` dans OpenSCAD.
+
+**STL.** `make_sample.sh` exporte un `.stl` par `.scad` quand `openscad` est dans
+le PATH, et passe son chemin en prévenant sinon. Les STL ne sont **pas versionnés**
+(`.gitignore`) : ils dérivent des `.scad`, pèsent plusieurs Mo et ne se diffent pas.
+Installer le moteur : `brew install --cask openscad@snapshot` — le cask stable
+`openscad` (2021.01) est désactivé depuis le 2026-09-01, il ne passe plus Gatekeeper.
+
+**`tools/check_mesh.py` est le seul contrôle qui révèle un îlot détaché.** Ni le
+`.scad` ni l'aperçu PNG ne le montrent : il a fallu compter les composants connexes
+du maillage pour découvrir que la marge des ponts, à 0,2 mm contre un jeu de 0,15,
+ne laissait que 0,05 mm de recouvrement et lâchait 11 contreformes. La contre-plaque
+conserve ~48 composants détachés, tous plus fins qu'une buse : ce sont des éclats
+de plaque pincés par le jeu dans les ouvertures serrées (`s`, `a`), que le trancheur
+ne pose pas. Un composant détaché **imprimable** serait, lui, un vrai défaut, et le
+script sort en erreur dans ce cas. Le rendu ne dépend plus
 d'aucune police installée : les contours sont dans le fichier.
 
 **Version d'OpenSCAD** : la dernière version *stable* est 2021.01 ; le

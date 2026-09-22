@@ -57,6 +57,21 @@ police installée.
 rastérise les mêmes contours que ceux du .scad, sans OpenSCAD ni aucune
 dépendance. Relisez la carte là avant d'y consacrer du filament.
 
+## STL et contrôle du maillage
+
+Si `openscad` est dans le PATH, `make_sample.sh` exporte aussi un .stl par .scad
+et passe `tools/check_mesh.py` dessus. Les STL ne sont pas versionnés : ils
+dérivent des .scad, pèsent plusieurs Mo et ne se diffent pas.
+
+Ce contrôle n'est pas une formalité. Une contre-plaque enferme le centre de chaque
+o, a, e, 8 ; sans un pont le rattachant au reste de la plaque, il s'imprime en
+spécule libre — et ni le .scad ni l'aperçu ne le montrent. Seul le comptage des
+composants connexes le révèle.
+
+Installer le moteur : `brew install --cask openscad@snapshot`. Le cask stable
+`openscad` (2021.01) est désactivé depuis le 2026-09-01, il ne passe plus
+Gatekeeper.
+
 ## Fonctionnalités
 
 1. **WordManager**: Cette classe est responsable de la lecture du fichier contenant les mots BIP39 et propose des méthodes pour obtenir des informations sur ces mots.

@@ -57,6 +57,11 @@ class CardDessing:
     # Largeur des ponts rattachant les contreformes au reste de la contre-plaque.
     # 1,5 × une buse de 0,4 mm : en deçà, le pont lui-même ne s'imprime pas.
     self.bridge_width   = 0.6
+    # Dépassement du pont au-delà du glyphe. Ce qui retient réellement l'îlot,
+    # c'est (bridge_margin - clearance) : à 0,2 contre un jeu de 0,15 il ne
+    # restait que 0,05 mm et 59 des 90 îlots se détachaient. Déborder dans le
+    # champ ne coûte rien, la plaque y est déjà pleine.
+    self.bridge_margin  = 0.8
 
     self.base_font_size    = 3.5
     self.title_font_size   = self.base_font_size * 1.2
@@ -216,7 +221,7 @@ class CardDessing:
 
     def collect(text, font_size, dx, dy):
       for x0, y0, x1, y1 in self.outliner.counter_bridges(
-          text, font_size, self.bridge_width):
+          text, font_size, self.bridge_width, self.bridge_margin):
         bars.append(solid2.translate(
             [round(dx + x0, COORD_DECIMALS), round(dy + y0, COORD_DECIMALS)])(
                 solid2.square([round(x1 - x0, COORD_DECIMALS),
@@ -241,10 +246,10 @@ class CardDessing:
     counter-plate would shed if bridging were ever disabled.
     """
     total = len(self.outliner.counter_bridges(
-        self.title, self.title_font_size, self.bridge_width))
+        self.title, self.title_font_size, self.bridge_width, self.bridge_margin))
     for _, label, _, _ in self.layout():
       total += len(self.outliner.counter_bridges(
-          label, self.base_font_size, self.bridge_width))
+          label, self.base_font_size, self.bridge_width, self.bridge_margin))
     return total
 
   # -- cartes -------------------------------------------------------------

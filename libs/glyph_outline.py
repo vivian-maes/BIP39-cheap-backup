@@ -278,7 +278,7 @@ class FontOutliner:
                 for glyph in self.glyphs(text, font_size)
                 for contour in glyph.contours]
 
-    def counter_bridges(self, text, font_size, bridge_width, margin=0.2):
+    def counter_bridges(self, text, font_size, bridge_width, margin):
         """
         Rectangles tying every counter to the outside of its glyph.
 
@@ -287,6 +287,21 @@ class FontOutliner:
         letter and connected to nothing, so it prints as a loose speck. A bar is
         run from each counter out through the shorter of the glyph's top or
         bottom edge, which is exactly how stencil typefaces solve the problem.
+
+        Two properties the bar must have, both learnt the hard way from counting
+        connected components in the exported mesh:
+
+        - it spans the counter from edge to edge, not merely from its centre, so
+          it cannot miss an island that the clearance has shrunk;
+        - `margin` must comfortably exceed the counter-plate's clearance. The bar
+          is unioned back after the letters have been cut *grown by clearance*,
+          so an overlap of `margin - clearance` is all that actually holds the
+          island. At 0.2 against a 0.15 clearance that left 0.05 mm and most
+          islands came away. Overshooting into the field costs nothing: out
+          there the bar unions with plate that is already solid.
+
+        Parameters:
+            margin (float): how far past the glyph's bounding box the bar runs.
 
         Returns:
             list[tuple[float, float, float, float]]: (x0, y0, x1, y1) per bar.
@@ -299,14 +314,13 @@ class FontOutliner:
                     continue
                 hx0, hy0, hx1, hy1 = _bbox(contour.points)
                 cx = (hx0 + hx1) / 2
-                cy = (hy0 + hy1) / 2
                 half = bridge_width / 2
                 # Break out through whichever edge is nearer, so the notch cut
                 # into the letter stays as short as possible.
                 if (gy1 - hy1) <= (hy0 - gy0):
-                    bars.append((cx - half, cy, cx + half, gy1 + margin))
+                    bars.append((cx - half, hy0, cx + half, gy1 + margin))
                 else:
-                    bars.append((cx - half, gy0 - margin, cx + half, cy))
+                    bars.append((cx - half, gy0 - margin, cx + half, hy1))
         return bars
 
     def is_monospaced(self, sample="abcdefghijklmnopqrstuvwxyz0123456789 "):

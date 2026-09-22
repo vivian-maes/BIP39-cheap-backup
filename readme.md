@@ -55,6 +55,21 @@ card renders identically on any machine, with no font installed.
 which rasterises the same outlines the .scad contains, with no OpenSCAD and no
 third-party module. Proofread the card there before committing filament to it.
 
+## STL and mesh checking
+
+With `openscad` on the PATH, `make_sample.sh` also exports one .stl per .scad and
+runs `tools/check_mesh.py` over them. STL files are not committed: they derive
+from the .scad, weigh several MB and do not diff.
+
+The mesh check is not a formality. A counter-plate encloses the middle of every
+o, a, e, 8; without a bridge tying it to the rest of the plate it prints as a
+loose speck, and neither the .scad nor a preview image reveals it — only counting
+connected components does.
+
+Install the engine with `brew install --cask openscad@snapshot`. The stable
+`openscad` cask (2021.01) has been disabled since 2026-09-01: it no longer passes
+macOS Gatekeeper.
+
 ## Functionality
 
 1. **WordManager**: This class is responsible for reading the file containing the BIP39 words and provides methods to obtain information on these words.
