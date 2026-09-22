@@ -1,3 +1,6 @@
+import math
+import warnings
+
 import solid2
 
 class CardDessing:
@@ -19,8 +22,15 @@ class CardDessing:
     self.base_font_size    = 3.5
     self.title_font_size   = self.base_font_size * 1.2
 
+    word_count = self.key_word.getWordCount()
+    if word_count <= 0:
+      raise ValueError("La liste de mots est vide : impossible de dessiner une carte.")
+
     self.word_by_line   = 3
-    self.rows           = self.key_word.getWordCount() // self.word_by_line
+    # ceil et non // : avec un nombre de mots non multiple de word_by_line, les
+    # derniers mots tombaient sur une rangée d'indice 0, donc en y négatif, et
+    # étaient gravés hors de la carte sans la moindre erreur.
+    self.rows           = math.ceil(word_count / self.word_by_line)
 
     row_lost_space      = (self.margin * 2) + ((self.word_by_line - 1) * self.word_margin)
     self.max_size_word  = (self.card_length - row_lost_space) / self.word_by_line
@@ -28,7 +38,54 @@ class CardDessing:
     self.top_text_zone  = self.card_width - (self.margin * 2.5 ) - self.title_font_size
     self.row_height     = self.top_text_zone / self.rows
 
+    self._fit_base_font_size()
 
+    # Rempli par make_card(). Déclaré ici pour que save() puisse diagnostiquer un
+    # appel hors séquence au lieu de lever un AttributeError opaque.
+    self.data = None
+
+
+
+  # OpenSCAD ne permet pas de mesurer un texte depuis Python. Ce ratio majore la
+  # largeur moyenne d'un glyphe, exprimée en fraction de la taille de police, pour
+  # une linéale comme Futura. C'est une estimation : d'où un avertissement plutôt
+  # qu'une promesse.
+  GLYPH_WIDTH_RATIO = 0.62
+
+  def _word_label(self, word_index):
+    """
+    Build the engraved label for a word: its 2-digit position, then the word.
+    """
+    return f"{str(word_index).zfill(2)} {self.key_word.getByIndex(word_index)}"
+
+  def _estimated_text_width(self, text, font_size):
+    """
+    Estimate the rendered width of a string, in millimetres.
+    """
+    return len(text) * font_size * self.GLYPH_WIDTH_RATIO
+
+  def _fit_base_font_size(self):
+    """
+    Shrink base_font_size until the longest label fits inside its column.
+
+    max_size_word was computed but never enforced: a long word simply overran into
+    the neighbouring column or off the card edge, silently, yielding an illegible
+    seed backup.
+    """
+    labels = [self._word_label(i)
+              for i in range(1, self.key_word.getWordCount() + 1)]
+    widest = max(labels, key=len)
+    width = self._estimated_text_width(widest, self.base_font_size)
+    if width <= self.max_size_word:
+      return
+
+    fitted = self.base_font_size * (self.max_size_word / width)
+    warnings.warn(
+        f"« {widest} » déborde de sa colonne ({width:.1f} mm estimés pour "
+        f"{self.max_size_word:.1f} mm disponibles) : taille de police réduite de "
+        f"{self.base_font_size:.2f} à {fitted:.2f} mm.",
+        stacklevel=3)
+    self.base_font_size = fitted
 
   def make_card(self):
     """
@@ -69,7 +126,7 @@ class CardDessing:
     y = self.card_width - self.margin - self.title_font_size  # + (self.font_size / 3)
     x = self.card_length / 2
     text = solid2.translate([x, y, self.text_z_pos])(
-        solid2.linear_extrude(height=self.text_height, convexity=None)(
+        solid2.linear_extrude(height=self.text_height, convexity=4)(
             solid2.text(tile, size=self.title_font_size, font=self.font_name, halign='center', valign='baseline',
                        spacing=1.0)))
     return text
@@ -100,7 +157,7 @@ class CardDessing:
       x = self.margin + ((word - 1) *  self.word_margin) + ((word - 1) *  self.max_size_word)
       y = ((row - 1) * self.row_height) + self.margin
 
-      word_text = f"{str(word_index).zfill(2)} {self.key_word.getByIndex(word_index)}"
+      word_text = self._word_label(word_index)
 
       self.data -= self.write_word(word_text, x, y)
     
@@ -118,7 +175,7 @@ class CardDessing:
             text: The 3D text object representing the written word.
     """
     text = solid2.translate([x, y, self.text_z_pos])(
-        solid2.linear_extrude(height=self.text_height, convexity=None)(
+        solid2.linear_extrude(height=self.text_height, convexity=4)(
             solid2.text(word, size=self.base_font_size, font=self.font_name, halign='left', valign='baseline',
                        spacing=1.0)))
     return text
@@ -130,5 +187,8 @@ class CardDessing:
     
     :param filename: The name of the file to save the card to.
     """
+    if self.data is None:
+      raise RuntimeError("make_card() doit être appelé avant save().")
+
     print(f"Save card to {filename}")
     solid2.scad_render_to_file(self.data, filename)

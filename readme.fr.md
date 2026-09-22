@@ -45,7 +45,7 @@ L'environnement virtuel n'est pas facultatif sur les installations Python récen
 
 ## Utilisation
 
-1. Préparez un fichier texte contenant votre clé BIP39 (12, 18 ou 24 mots, un mot par ligne).
+1. Préparez un fichier texte contenant votre clé BIP39 (12, 15, 18, 21 ou 24 mots, un mot par ligne). Les lignes vides et les espaces superflus sont ignorés.
 2. Exécutez l'application avec la commande suivante :
 
 ```bash

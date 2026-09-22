@@ -45,7 +45,7 @@ Debian/Ubuntu): a bare `pip install` there aborts with
 
 ## Usage
 
-1. Prepare a text file containing your BIP39 key (12, 18, or 24 words, one word per line).
+1. Prepare a text file containing your BIP39 key (12, 15, 18, 21, or 24 words, one word per line). Blank lines and surrounding whitespace are ignored.
 2. Run the application with the following command:
 
 ```bash

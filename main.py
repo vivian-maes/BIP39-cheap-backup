@@ -3,13 +3,21 @@ import argparse
 from libs.word_manager import WordManager
 from libs.card_dessing import CardDessing
 
+# Longueurs de mnémonique définies par BIP39. Les variantes 15 et 21 étaient
+# refusées alors que la mise en page les gère (5 et 7 rangées de 3 mots).
+VALID_WORD_COUNTS = (12, 15, 18, 21, 24)
+
 def main(key_path, tile, save_path):
     print(f"Fichier à lire = {key_path}")
 
     key_word = WordManager(key_path)
 
-    if key_word.getWordCount() != 24 and key_word.getWordCount() != 18 and key_word.getWordCount() != 12:
-        raise Exception(f"Le fichier {key_path} ne contient pas 24, 18 ou mots")
+    word_count = key_word.getWordCount()
+    if word_count not in VALID_WORD_COUNTS:
+        expected = ", ".join(str(n) for n in VALID_WORD_COUNTS)
+        raise Exception(
+            f"Le fichier {key_path} contient {word_count} mots ; "
+            f"une clé BIP39 en compte {expected}.")
 
     card_dessing = CardDessing(key_word, tile)
     card_dessing.make_card()

@@ -86,8 +86,7 @@ police `Futura`, présente sur macOS mais pas partout).
   (cela casserait les appelants) :
   - la classe s'appelle `CardDessing` (pour « design ») ;
   - le paramètre s'appelle `tile` dans `main()` et `CardDessing.write_title()` (pour
-    « title »), alors que l'argument CLI est bien `title` ;
-  - le message d'erreur de `main.py` indique « 24, 18 ou mots » (le « 12 » manque).
+    « title »), alors que l'argument CLI est bien `title`.
 
 ## Points d'attention fonctionnels
 
@@ -95,13 +94,24 @@ police `Futura`, présente sur macOS mais pas partout).
   `getIndex`, `getByIndex` et `getBinaryIndex` sont des positions **dans le fichier
   fourni** (base 1), pas les index 1–2048 de la spécification. Il n'y a aucune
   validation des mots contre la liste officielle.
-- `exist`, `getIndex` et `getBinaryIndex` ne sont pas utilisés par le flux de
-  génération actuel.
-- `main.py` n'accepte que 12, 18 ou 24 mots. La mise en page suppose
-  `word_by_line = 3` et `rows = nombre_de_mots // 3`.
+- `getBinaryIndex` renvoie un champ BIP39 de 11 bits en base 0 (`format(i - 1, '011b')`),
+  et `None` au-delà de la 2048ᵉ position. `exist`, `getIndex`, `getIndices` et
+  `getBinaryIndex` ne sont pas utilisés par le flux de génération actuel.
+- `main.py` accepte les cinq longueurs BIP39 (`VALID_WORD_COUNTS` = 12, 15, 18, 21, 24).
+  La mise en page suppose `word_by_line = 3` et arrondit au supérieur
+  (`rows = ceil(n / 3)`) : sans cela, un compte non multiple de 3 plaçait les derniers
+  mots en `y` négatif, hors carte et sans erreur.
+- **Le débordement de colonne est désormais contrôlé.** `_fit_base_font_size()` réduit
+  la police et émet un `UserWarning` si le plus long libellé dépasse `max_size_word`.
+  La largeur est *estimée* (`GLYPH_WIDTH_RATIO`, OpenSCAD ne permet pas de mesurer un
+  texte depuis Python) : sur une wordlist inhabituelle, vérifier le rendu.
 - Toute la géométrie est paramétrée par les constantes du `__init__` de `CardDessing`
   (marges, dimensions, police, tailles). Modifier ces valeurs plutôt que les calculs
-  en aval, et vérifier que les mots les plus longs tiennent dans `max_size_word`.
+  en aval.
+- `row_height = top_text_zone / rows` n'utilise que `rows - 1` intervalles : une rangée
+  de la zone réservée reste vide et le bloc de texte est plus bas que les constantes ne
+  le laissent croire. Connu, non corrigé — le rectifier déplacerait le texte sur toutes
+  les cartes déjà imprimées.
 - Le projet utilise **SolidPython2** (`solid2`). Ne pas revenir à `solidpython`
   1.x : ce paquet est figé depuis février 2022, épingle `PrettyTable==0.7.2` (2013)
   et importe `pkg_resources`, supprimé des setuptools récents.
